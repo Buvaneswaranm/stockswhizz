@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Logo from '../Logo';
 
 export default function Footer() {
   return (
@@ -6,8 +7,8 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
-            <Link to="/" className="font-display text-2xl text-cream">
-              StocksWhizz
+            <Link to="/" className="inline-block hover:opacity-90">
+              <Logo size="md" />
             </Link>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
               Personalized investment guidance and free financial calculators for

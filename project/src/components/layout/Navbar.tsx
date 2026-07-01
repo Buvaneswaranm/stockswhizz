@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import Logo from '../Logo';
 
 type InternalNavLink = {
   label: string;
@@ -40,13 +41,8 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-midnight/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-        <Link to="/" className="group flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gold/15 ring-1 ring-gold/30">
-            <span className="font-display text-sm text-gold">S</span>
-          </span>
-          <span className="font-display text-xl tracking-tight text-cream group-hover:text-gold-light">
-            StocksWhizz
-          </span>
+        <Link to="/" className="group">
+          <Logo />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
