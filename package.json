@@ -1,0 +1,12 @@
+{
+  "name": "stockswhizz",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix project",
+    "dev": "npm run dev --prefix project",
+    "install:project": "npm install --prefix project"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
