@@ -1,3 +1,141 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-midnight font-sans text-cream antialiased;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-cream;
+  }
+}
+
+@layer components {
+  .sw-grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black, transparent);
+  }
+
+  .sw-glass {
+    @apply border border-white/[0.07] bg-white/[0.03] backdrop-blur-xl;
+  }
+
+  .sw-glass-hover {
+    @apply transition-all duration-300 hover:border-gold/25 hover:bg-white/[0.05] hover:shadow-card-hover;
+  }
+
+  .sw-heading {
+    @apply font-display text-cream;
+  }
+
+  .sw-gradient-text {
+    @apply bg-gradient-to-br from-gold-light via-gold to-gold-dim bg-clip-text text-transparent;
+  }
+
+  .sw-btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-gold px-6 py-3 text-sm font-semibold text-midnight transition-all duration-200 hover:bg-gold-light hover:shadow-glow;
+  }
+
+  .sw-btn-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-cream transition-all duration-200 hover:border-gold/30 hover:bg-white/[0.07];
+  }
+
+  .sw-badge {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-gold/20 bg-gold/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-gold-light;
+  }
+
+  .sw-input {
+    @apply w-full rounded-lg border border-white/[0.08] bg-midnight-100 px-4 py-3 text-cream outline-none transition-all placeholder:text-muted focus:border-gold/40 focus:ring-2 focus:ring-gold/10;
+  }
+
+  .sw-label {
+    @apply mb-2 block text-sm font-medium text-cream/80;
+  }
+}
+
+@keyframes float-orb-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
+}
+
+@keyframes float-orb-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-25px, 25px) scale(1.08);
+  }
+}
+
+@keyframes float-orb-3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(20px, 15px) scale(0.95);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+.link-hub-orb {
+  animation-duration: 14s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.link-hub-orb-1 {
+  animation-name: float-orb-1;
+}
+
+.link-hub-orb-2 {
+  animation-name: float-orb-2;
+  animation-duration: 18s;
+  animation-delay: -4s;
+}
+
+.link-hub-orb-3 {
+  animation-name: float-orb-3;
+  animation-duration: 20s;
+  animation-delay: -8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-hub-orb,
+  .animate-fade-up {
+    animation: none;
+  }
+
+  .sw-glass-hover {
+    transition: none;
+  }
+}
